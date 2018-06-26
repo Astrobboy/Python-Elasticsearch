@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form action="/as" method="post">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Enviar</button>
+    </form>
+    {% if resultado %}
+        <p>{{ resultado }}</p>
+    {% endif %}
+
+</body>
+
+</html>

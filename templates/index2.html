@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form action="/buscar" method="post">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <ul>
+        {% for title in titles %}
+        <li>{{ title }}</li>
+        {% endfor %}
+    </ul>
+    {% if resultado %}
+        <p>{{ resultado }}</p>
+    {% endif %}
+
+</body>
+
+</html>
