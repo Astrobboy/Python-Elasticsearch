@@ -416,12 +416,11 @@ def buscar():
 def todo():
     if request.method == 'POST':
         params = request.get_json()['text']
-        #print (params)
         consoles = ["juego_xbox_one", "juego_xbox_360", "juego_ps4", "juego_ps3", "juego_ps2", "juego_switch", "juego_3ds", "juego_ps_vita", "juego_wii", "juego_wii_u", "juego_games"]
         #params = "mortal"
         s = es.search(index = consoles, body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        #array = {"hola": "hola"}
+        
         return make_response(json.dumps(array))
     else: 
         consoles = ["juego_xbox_one", "juego_xbox_360", "juego_ps4", "juego_ps3", "juego_ps2", "juego_switch", "juego_3ds", "juego_ps_vita", "juego_wii", "juego_wii_u", "juego_games"]
@@ -438,8 +437,6 @@ def xboxone():
         params = request.get_json()['text']
         s = es.search(index="juego_xbox_one", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:
         s = es.search(index="juego_xbox_one", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -454,8 +451,6 @@ def xbox360():
         params = request.get_json()['text']
         s = es.search(index="juego_xbox_360", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else: 
         s = es.search(index="juego_xbox_360", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -472,8 +467,6 @@ def ps4():
         params = request.get_json()['text']
         s = es.search(index="juego_ps4", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:    
         s = es.search(index="juego_ps4", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -491,8 +484,6 @@ def ps3():
         params = request.get_json()['text']
         s = es.search(index="juego_ps3", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:  
         s = es.search(index="juego_ps3", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -507,8 +498,6 @@ def ps2():
         params = request.get_json()['text']
         s = es.search(index="juego_ps2", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:  
         s = es.search(index="juego_ps2", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -524,8 +513,6 @@ def switch():
         params = request.get_json()['text']
         s = es.search(index="juego_switch", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:  
         s = es.search(index="juego_switch", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -541,8 +528,6 @@ def ds3():
         params = request.get_json()['text']
         s = es.search(index="juego_3ds", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:  
         s = es.search(index="juego_3ds", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -557,8 +542,6 @@ def psvita():
         params = request.get_json()['text']
         s = es.search(index="juego_ps_vita", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else: 
         s = es.search(index="juego_ps_vita", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -573,8 +556,6 @@ def wii():
         params = request.get_json()['text']
         s = es.search(index="juego_wii", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:  
         s = es.search(index="juego_wii", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -589,8 +570,6 @@ def wiiu():
         params = request.get_json()['text']
         s = es.search(index="juego_wii_u", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:  
         s = es.search(index="juego_wii_u", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
@@ -606,8 +585,6 @@ def games():
         params = request.get_json()['text']
         s = es.search(index="juego_games", body={ 'from': 0, 'size':1500, "query": {"multi_match": { "query": params }}})
         array = convert_data(s["hits"]["hits"])
-        print (array)
-        #array = {"hola": "hola"}
         return make_response(json.dumps(array))
     else:  
         s = es.search(index="juego_games", body={ 'from': 0, 'size':1000, "query": {"match_all": {}}})
